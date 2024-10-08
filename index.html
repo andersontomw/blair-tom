@@ -39,10 +39,21 @@
     </div>
 
     <script>
-        // Redirect after a delay (e.g., 3 seconds)
-        setTimeout(() => {
+        function redirect() {
             window.location.href = "https://www.zola.com/wedding/thomas-blair";
-        }, 2500);
+        }
+
+        // Redirect after a delay (e.g., 2.5 seconds)
+        const redirectDelay = 2500;
+        setTimeout(redirect, redirectDelay);
+
+        // Handle back button navigation
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                // If the page is loaded from the cache
+                setTimeout(redirect, redirectDelay);
+            }
+        });
     </script>
 </body>
 </html>
